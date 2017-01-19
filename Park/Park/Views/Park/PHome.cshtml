@@ -1,0 +1,53 @@
+﻿@model List<Park.Models.Park>
+
+@{
+    ViewBag.Title = "PHome";
+}
+
+<h1>管理後台</h1>
+
+
+<div class="container">
+    <div>
+        <h1>PHome</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead></thead>
+                <tbody>
+                    <tr>
+                        <td>Manager</td>
+                        <td>Users</td>
+                        <td>Map</td>
+                        <td>Number </td>
+                        <td>
+                            <a class="btn btn-success" href="~/Park/Create">新增</a>
+                        </td>
+                    </tr>
+
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model[i].Manager</td>
+                            <td>@Model[i].Users</td>
+                            <td>@Model[i].Map</td>
+                            <td>@Model[i].Number</td>
+                            @*<td>
+                    <img class="img-responsive" src="@Model[i].ImageUrl" />
+                    <a href="/Home/Detail/@Model[i].ID">Link</a>
+                </td>*@
+                            <td>
+                                <a class="btn btn-primary" href="~/Park/Update/@Model[i].Manager">編輯</a>
+                                <a class="btn btn-danger" href="~/Park/Delete/@Model[i].Manager">刪除</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+    </div>
+</div>
